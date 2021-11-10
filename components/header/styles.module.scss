@@ -1,0 +1,129 @@
+@import "../../styles/variable";
+
+.AppHeader {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 80px;
+    display: flex;
+    padding-top: 20px;
+    background-color: $primaryColor;
+    justify-content: space-between;
+    padding: 0 8%;
+    z-index: 500;
+
+    * {
+        font-family: 'Nunito', sans-serif;
+    }
+
+    .routeLink,
+    .action {
+        width: 50%;
+        min-width: 40%;
+        display: flex;
+        height: 100%;
+
+        .link {
+            width: auto;
+            min-width: auto;
+            height: 100%;
+            min-height: 100%;
+            display: flex;
+            padding: 0 15px;
+            justify-content: center;
+            align-items: center;
+            font-weight: 300;
+            color: rgba(255, 255, 255, 0.85);
+            font-size: 1em;
+            // display: inline-block;
+            vertical-align: middle;
+            -webkit-transform: perspective(1px) translateZ(0);
+            transform: perspective(1px) translateZ(0);
+            box-shadow: 0 0 1px rgba(0, 0, 0, 0);
+            position: relative;
+            overflow: hidden;
+
+
+            &::before {
+                content: "";
+                position: absolute;
+                z-index: -1;
+                left: 51%;
+                right: 51%;
+                bottom: 20px;
+                background: rgba(255, 255, 255, 0.514);
+                border-radius: 5px;
+                height: 3px;
+                -webkit-transition-property: left, right;
+                transition-property: left, right;
+                -webkit-transition-duration: 0.3s;
+                transition-duration: 0.3s;
+                -webkit-transition-timing-function: ease-out;
+                transition-timing-function: ease-out;
+            }
+
+            &:hover::before,
+            &:focus::before,
+            &.active::before,
+            &:active::before {
+                left: 25%;
+                right: 25%;
+            }
+
+            &.active {
+                color: white;
+                font-weight: 600;
+
+                &::before {
+                    background-color: white;
+                }
+            }
+        }
+    }
+
+    .title {
+        width: auto;
+        min-width: auto;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-weight: 900;
+        font-size: 2em;
+        color: white;
+        padding: 0 10px;
+        text-transform: uppercase;
+
+        &::before {
+            content: "";
+            width: 50px;
+            height: 50px;
+            min-width: 50px;
+            min-height: 50px;
+            max-width: 50px;
+            max-height: 50px;
+            display: flex;
+            background-image: url(../../assets/images/logo.svg);
+            background-size: contain;
+            background-repeat: no-repeat;
+            background-position: center;
+            margin-right: 10px;
+        }
+    }
+
+    .action {
+        justify-content: flex-end;
+
+        .btn {
+            width: 150px;
+            height: 40px;
+            background-color: white;
+            box-shadow: none;
+            align-self: center;
+            font-weight: 600;
+            box-shadow: 0px 20px 40px rgba(0, 0, 0, 0.094);
+            color: $primaryColor;
+        }
+
+    }
+}
